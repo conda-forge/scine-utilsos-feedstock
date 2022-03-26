@@ -10,14 +10,16 @@ source:
   - url: https://github.com/qcscine/utilities/archive/refs/tags/{{ version }}.tar.gz
     sha256: 3bcabd8f4270f0c1efd235a0d22506f4750b0ccffa99184d4362b95a1da7a1d4
     fn: {{ name }}.tar.gz
+    patches:
+      - osx_tests.patch  # [osx]
   - url: https://github.com/qcscine/development-utils/archive/refs/tags/4.0.0.tar.gz
     sha256: 54002c2082b6bb75672ec66bf9cf3935bbdf6b085ed9b4d7174cbdedb7c2275d
     fn: dev.tar.gz
     folder: dev
 
 build:
-  number: 0
-  skip: true  # [win or osx]
+  number: 1
+  skip: true  # [win]
   script:
     - set -ex
     - >
@@ -52,13 +54,11 @@ requirements:
     - yaml-cpp
   run:
     - boost-cpp
-    - eigen
     - yaml-cpp
 
 test:
   commands:
     - test -f $PREFIX/lib/lib{{ name }}${SHLIB_EXT}
-
 
 about:
   license: BSD-3-Clause
