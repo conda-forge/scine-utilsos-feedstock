@@ -1,6 +1,6 @@
 {% set name = "utilsos" %}
 {% set pkg_name = "scine-" + name %}
-{% set version = "4.0.0" %}
+{% set version = "5.0.0" %}
 
 package:
   name: {{ pkg_name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/qcscine/utilities/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 3bcabd8f4270f0c1efd235a0d22506f4750b0ccffa99184d4362b95a1da7a1d4
+    sha256: a304c89d9a196fe304f38610dea6b066d74590c0d434e4bd09a9796340700465
     fn: {{ name }}.tar.gz
     patches:
       - osx_tests.patch  # [osx]
@@ -18,15 +18,12 @@ source:
     folder: dev
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   script:
     - set -ex
     - >
-       cmake
-       ${CMAKE_ARGS}
-       -B _build -G Ninja
-       -DSCINE_MARCH=""
+      cmake ${CMAKE_ARGS} -B _build -G Ninja -DSCINE_MARCH=""
     - cmake --build _build
     - ctest --test-dir _build --output-on-failure  # [build_platform == target_platform]
     - cmake --install _build
