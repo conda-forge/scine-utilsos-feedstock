@@ -1,6 +1,6 @@
 {% set name = "utilsos" %}
 {% set pkg_name = "scine-" + name %}
-{% set version = "4.0.0" %}
+{% set version = "5.0.0" %}
 
 package:
   name: {{ pkg_name }}
@@ -8,28 +8,19 @@ package:
 
 source:
   - url: https://github.com/qcscine/utilities/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 3bcabd8f4270f0c1efd235a0d22506f4750b0ccffa99184d4362b95a1da7a1d4
+    sha256: a304c89d9a196fe304f38610dea6b066d74590c0d434e4bd09a9796340700465
     fn: {{ name }}.tar.gz
     patches:
       - osx_tests.patch  # [osx]
-  - url: https://github.com/qcscine/development-utils/archive/refs/tags/4.0.0.tar.gz
-    sha256: 54002c2082b6bb75672ec66bf9cf3935bbdf6b085ed9b4d7174cbdedb7c2275d
+      - random_shuffle.patch  # [osx]
+  - url: https://github.com/qcscine/development-utils/archive/refs/tags/5.0.0.tar.gz
+    sha256: bb2f161ed15811def85ca635924427356564a811779993123077f4ada048be84
     fn: dev.tar.gz
     folder: dev
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
-  script:
-    - set -ex
-    - >
-       cmake
-       ${CMAKE_ARGS}
-       -B _build -G Ninja
-       -DSCINE_MARCH=""
-    - cmake --build _build
-    - ctest --test-dir _build --output-on-failure  # [build_platform == target_platform]
-    - cmake --install _build
 
   run_exports:
     - {{ pin_subpackage(pkg_name, max_pin='x') }}
@@ -48,6 +39,7 @@ requirements:
     - eigen
     - gtest
     - gmock
+    - lbfgspp
     - libblas
     - liblapack
     - scine-core
