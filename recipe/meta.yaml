@@ -12,9 +12,8 @@ source:
     fn: {{ name }}.tar.gz
     patches:
       - osx_tests.patch  # [osx]
-      - random_shuffle.patch  # [osx]
-  - url: https://github.com/qcscine/development-utils/archive/refs/tags/5.0.0.tar.gz
-    sha256: bb2f161ed15811def85ca635924427356564a811779993123077f4ada048be84
+  - url: https://github.com/qcscine/development-utils/archive/refs/tags/5.0.1.tar.gz
+    sha256: 089ca500fc191e04a968ea166d2fe80178b227bc2e6d3926523fa2eee5f6492d
     fn: dev.tar.gz
     folder: dev
 
