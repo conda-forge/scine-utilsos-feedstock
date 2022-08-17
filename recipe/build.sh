@@ -4,7 +4,8 @@ set -ex
 cmake \
     ${CMAKE_ARGS} \
     -B _build -G Ninja \
-    -DSCINE_MARCH=""
+    -DSCINE_MARCH="" \
+    -DCMAKE_BUILD_TYPE=Release
 
 cmake --build _build
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "0" ]]; then
