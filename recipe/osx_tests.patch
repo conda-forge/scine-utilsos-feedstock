@@ -1,8 +1,8 @@
 diff --git a/src/Utils/Tests/Geometry/PeriodicSystemTest.cpp b/src/Utils/Tests/Geometry/PeriodicSystemTest.cpp
-index 1a09479..459fb29 100644
+index 661fc6a..d1c4dc6 100644
 --- a/src/Utils/Tests/Geometry/PeriodicSystemTest.cpp
 +++ b/src/Utils/Tests/Geometry/PeriodicSystemTest.cpp
-@@ -528,6 +528,7 @@ TEST_F(PeriodicSystemTest, MultiplicationWorksSurface) {
+@@ -554,6 +554,7 @@ TEST_F(PeriodicSystemTest, MultiplicationWorksSurface) {
    ASSERT_NEAR(scaledRandomPs.pbc.getGamma(), ps.pbc.getGamma(), 1e-12);
  }
  
@@ -10,7 +10,7 @@ index 1a09479..459fb29 100644
  TEST_F(PeriodicSystemTest, MultiplicationWorksMolecular) {
    std::stringstream stream("3\n\n"
                             "H      0.7493682000    0.0000000000    0.4424329000\n"
-@@ -562,6 +563,7 @@ TEST_F(PeriodicSystemTest, MultiplicationWorksMolecular) {
+@@ -588,6 +589,7 @@ TEST_F(PeriodicSystemTest, MultiplicationWorksMolecular) {
    ASSERT_NEAR(scaledRandomPs.pbc.getBeta(), randomPs.pbc.getBeta(), 1e-12);
    ASSERT_NEAR(scaledRandomPs.pbc.getGamma(), randomPs.pbc.getGamma(), 1e-12);
  }
@@ -19,22 +19,42 @@ index 1a09479..459fb29 100644
  TEST_F(PeriodicSystemTest, ConstructingNegativeBondOrdersWorks) {
    std::stringstream stream("40\n\n"
 diff --git a/src/Utils/Tests/Optimizer/OptimizerTest.cpp b/src/Utils/Tests/Optimizer/OptimizerTest.cpp
-index 0731877..fe9f9da 100644
+index 87d7c73..3ee08cf 100644
 --- a/src/Utils/Tests/Optimizer/OptimizerTest.cpp
 +++ b/src/Utils/Tests/Optimizer/OptimizerTest.cpp
-@@ -331,6 +331,7 @@ TEST(OptimizerTests, DimerTest_3) {
+@@ -415,6 +415,7 @@ TEST(OptimizerTests, DimerTest_3) {
    EXPECT_NEAR(positions[0], M_PI, 1.0e-8);
    EXPECT_NEAR(positions[1], 0.0, 1.0e-8);
  }
 +/*
  TEST(OptimizerTests, DimerTest_4) {
-   Dimer optimizer;
-   optimizer.maxValueMemory = 10;
-@@ -346,6 +347,7 @@ TEST(OptimizerTests, DimerTest_4) {
+   auto log = Core::Log::silent();
+   log.output.add("cout", Core::Log::coutSink());
+@@ -434,6 +435,7 @@ TEST(OptimizerTests, DimerTest_4) {
    EXPECT_NEAR(positions[0], 0.0, 1.0e-8);
    EXPECT_NEAR(positions[1], 0.0, 1.0e-8);
  }
 +*/
  TEST(OptimizerTests, DimerTest_5) {
-   Dimer optimizer;
-   optimizer.translationMethod = "AMSGRAD";
+   auto log = Core::Log::silent();
+   log.output.add("cout", Core::Log::coutSink());
+diff --git a/src/Utils/Tests/Solvation/SoluteSolventComplexTest.cpp b/src/Utils/Tests/Solvation/SoluteSolventComplexTest.cpp
+index ee9b0ce..ca503c5 100644
+--- a/src/Utils/Tests/Solvation/SoluteSolventComplexTest.cpp
++++ b/src/Utils/Tests/Solvation/SoluteSolventComplexTest.cpp
+@@ -476,6 +476,7 @@ TEST(SoluteSolventComplexTest, DoesGiveSolventVectorGiveCorrectStructure) {
+   assertPositionCollectionsEqual(reducedSolventShellVector[1][0].getPositions(), solventComplex[0][17].getPositions());
+ }
+ 
++/*
+ TEST(SoluteSolventComplexTest, DoesAdditionOfMixedSolventsWork) {
+   // Formaldehyde
+   PositionCollection methanalPC(4, 3);
+@@ -576,6 +577,7 @@ TEST(SoluteSolventComplexTest, DoesAdditionOfMixedSolventsWork) {
+     }
+   }
+ }
++*/
+ 
+ } /* namespace Tests */
+ } /* namespace Utils */
