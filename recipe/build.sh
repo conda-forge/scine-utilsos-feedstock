@@ -5,7 +5,10 @@ cmake \
     ${CMAKE_ARGS} \
     -B _build -G Ninja \
     -DSCINE_MARCH="" \
-    -DCMAKE_BUILD_TYPE=Release
+    -DSCINE_USE_INTEL_MKL=OFF \
+    -DSCINE_USE_STATIC_LINALG=OFF \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBLA_VENDOR=Generic
 
 cmake --build _build
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "0" ]]; then
