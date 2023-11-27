@@ -1,7 +1,7 @@
 From 4c6b2d461a651c544a1a74639864de97d1517a55 Mon Sep 17 00:00:00 2001
 From: Sebastian Ehlert <28669218+awvwgk@users.noreply.github.com>
 Date: Sat, 26 Mar 2022 16:38:38 +0100
-Subject: [PATCH] skip some tests on osx
+Subject: [PATCH 1/2] skip some tests on osx
 
 ---
  src/Utils/Tests/Geometry/PeriodicSystemTest.cpp        | 2 ++

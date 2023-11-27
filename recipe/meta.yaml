@@ -9,6 +9,7 @@ source:
     sha256: 6fb99c40b5da47491006ad21414277736d1581e8987b25342dca3f9a0a7579e9
     patches:
       - patches/0001-skip-some-tests-on-osx.patch   # [osx]
+      - patches/0002-add-missing-header-for-using-std-unique_ptr.patch
   # to build, we need to include necessary submodule
   # (not in tarball due to dear-github/dear-github#214)
   - git_url: https://github.com/qcscine/development-utils.git
