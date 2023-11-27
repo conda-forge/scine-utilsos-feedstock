@@ -1,0 +1,21 @@
+From 961b74f91f178238d88622b222789fdec2f6d826 Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Mon, 27 Nov 2023 15:48:41 +1100
+Subject: [PATCH 2/2] add missing header for using `std::unique_ptr`
+
+---
+ src/Utils/Utils/IO/ChemicalFileFormats/ChemicalFileHandler.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/Utils/Utils/IO/ChemicalFileFormats/ChemicalFileHandler.cpp b/src/Utils/Utils/IO/ChemicalFileFormats/ChemicalFileHandler.cpp
+index 4f525d1..e20e8a6 100644
+--- a/src/Utils/Utils/IO/ChemicalFileFormats/ChemicalFileHandler.cpp
++++ b/src/Utils/Utils/IO/ChemicalFileFormats/ChemicalFileHandler.cpp
+@@ -13,6 +13,7 @@
+ #include <Utils/IO/ChemicalFileFormats/PdbStreamHandler.h>
+ #include <Utils/IO/ChemicalFileFormats/XyzStreamHandler.h>
+ #include <fstream>
++#include <memory>
+ 
+ namespace Scine {
+ namespace Utils {
