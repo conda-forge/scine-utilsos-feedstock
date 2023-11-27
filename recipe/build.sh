@@ -19,6 +19,6 @@ cmake \
 cmake --build _build
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "0" ]]; then
   ctest --test-dir _build --output-on-failure \
-    -E "(SoluteSolventComplexTest.DoesAdditionOfMixedSolventsWork|UnitCellGeometryOptimizerTests.MixedOptimizer)"
+    -E "SoluteSolventComplexTest.DoesAdditionOfMixedSolventsWork|UnitCellGeometryOptimizerTests.MixedOptimizer"
 fi
 cmake --install _build
