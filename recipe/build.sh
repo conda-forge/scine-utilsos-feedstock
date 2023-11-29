@@ -20,6 +20,6 @@ cmake --build _build
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "0" ]]; then
   # skip failing tests until they are fixed
   # ctest --test-dir _build --output-on-failure
-  $SRC_DIR/src/Utils/UtilsOS_tests  --gtest_filter=-SoluteSolventComplexTest.DoesAdditionOfMixedSolventsWork:UnitCellGeometryOptimizerTests.MixedOptimizer
+  _build/src/Utils/UtilsOS_tests  --gtest_filter=-SoluteSolventComplexTest.DoesAdditionOfMixedSolventsWork:UnitCellGeometryOptimizerTests.MixedOptimizer
 fi
 cmake --install _build
