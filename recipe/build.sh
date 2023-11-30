@@ -18,6 +18,8 @@ cmake \
 
 cmake --build _build
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "0" ]]; then
+  apt install tree
+  tree
   # skip failing tests until they are fixed
   # ctest --test-dir _build --output-on-failure
   _build/src/Utils/UtilsOS_tests  --gtest_filter=-SoluteSolventComplexTest.DoesAdditionOfMixedSolventsWork:UnitCellGeometryOptimizerTests.MixedOptimizer
