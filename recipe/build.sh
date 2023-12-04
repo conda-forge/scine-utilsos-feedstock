@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -ex
 
+git submodule init
+git submodule update
+
 # Workaround for https://github.com/conda-forge/gazebo-feedstock/pull/150
 # Remove when boost is updated to 1.80.0
 if [[ "${target_platform}" == "osx-64" ]]; then
