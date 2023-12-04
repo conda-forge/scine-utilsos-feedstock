@@ -48,7 +48,7 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/lib/libscine-utilsos${SHLIB_EXT}
+    - test -f $PREFIX/lib/libutilsos${SHLIB_EXT}
 
 about:
   license: BSD-3-Clause
