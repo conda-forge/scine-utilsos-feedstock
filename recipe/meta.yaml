@@ -12,7 +12,7 @@ source:
       - patches/0002-add-missing-header-for-using-std-unique_ptr.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
   run_exports:
@@ -21,6 +21,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - ninja
